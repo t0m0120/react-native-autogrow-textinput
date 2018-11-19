@@ -24,6 +24,16 @@ export default class AutoGrowingTextInput extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps) {
+    if (is_android()) {
+      return true;
+    }
+
+    const { value } = this.props;
+    return nextProps.value === '' || value === nextProps.value;
+  }
+
+
   componentWillUnmount() {
     if(this.shouldApplyNativeSettings()) {
       const reactTag = this.textInputReactTag();
