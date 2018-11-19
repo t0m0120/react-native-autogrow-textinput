@@ -25,7 +25,7 @@ export default class AutoGrowingTextInput extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    if (is_android()) {
+    if (ANDROID_PLATFORM) {
       return true;
     }
 
